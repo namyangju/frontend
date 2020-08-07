@@ -10,10 +10,10 @@ function MenuModal() {
     <Modal modalName="menu">
       {() => (
         <Menu>
-          <div className="profile">
+          <Link to="/profile" className="profile">
             <Profile size="50px" />
             <h3 className="username">Username</h3>
-          </div>
+          </Link>
           <div className="menu-list">
             <Link to="/write" className="menu-item">
               입찰 등록
@@ -40,6 +40,7 @@ const Menu = styled.div`
 
   .profile {
     display: flex;
+    color: black;
     align-items: center;
     .username {
       margin: 0;
