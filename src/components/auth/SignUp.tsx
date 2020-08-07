@@ -3,6 +3,8 @@ import styled from "styled-components";
 import { Formik, FormikHelpers } from "formik";
 import InputItem from "components/elements/InputItem";
 import Button from "components/elements/Button";
+import client from "api/client";
+import { useHistory } from "react-router-dom";
 
 const initialValues = {
   email: "",
@@ -14,9 +16,37 @@ const initialValues = {
 type ValueType = typeof initialValues;
 
 function SignUp() {
+  const history = useHistory();
   const onSubmit = useCallback(
-    (values: ValueType, helper: FormikHelpers<ValueType>) => {},
-    []
+    async (values: ValueType, helper: FormikHelpers<ValueType>) => {
+      if (
+        !values.email ||
+        !values.password ||
+        !values.passwordAccept ||
+        !values.role ||
+        !values.username
+      ) {
+        helper.setSubmitting(false);
+        return;
+      }
+
+      try {
+        const { email, password, role, username } = values;
+        await client.post("/user", {
+          userid: email,
+          password,
+          nickname: username,
+          type: role,
+        });
+
+        alert("회원가입이 완료되었습니다.");
+        history.replace("/login");
+      } catch (e) {
+        alert("오류가 발생했습니다. 다시 시도해주세요.");
+        console.error(e);
+      }
+    },
+    [history]
   );
   const validate = useCallback(
     ({ email, password, passwordAccept }: ValueType, props: any) => {
