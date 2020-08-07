@@ -1,19 +1,28 @@
 import React from "react";
 import styled from "styled-components";
 import Button from "components/elements/Button";
+import { useHistory } from "react-router-dom";
 
-function Bid() {
+interface BidProps {
+  title: string;
+  description: string;
+  price: string;
+  _id: string;
+}
+function Bid({ title, description, price, _id }: BidProps) {
+  const history = useHistory();
+
   return (
     <Card>
-      <h1 className="title">제목</h1>
-      <p className="detail">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent nec
-        posuere elit, ut molestie turpis. Sed fermentum bibendum magna, nec
-        posuere odio imperdiet at. Sed accumsan orci nec tincidunt maximus...
-      </p>
-      <div className="price">희망가 0원</div>
+      <h1 className="title">{title}</h1>
+      <p className="detail">{description} </p>
+      <div className="price">희망가 {price}원</div>
       <div className="button">
-        <Button className="bid-button" fullWidth>
+        <Button
+          className="bid-button"
+          fullWidth
+          onClick={() => history.push("/bid/" + _id)}
+        >
           입찰 참가
         </Button>
       </div>

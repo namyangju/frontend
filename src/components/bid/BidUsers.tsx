@@ -35,6 +35,7 @@ function BidUsers({
           </Button>
         </div>
       ))}
+      {users.length < 1 && "아직 입찰한 유저가 없습니다."}
     </List>
   );
 }
