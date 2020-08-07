@@ -19,5 +19,13 @@ export function useIsLoginRedirect(to: string = "/") {
     isLogin && history.replace(to);
   }, [isLogin, history, to]);
 }
+export function useIsNotLoginRedirect(to: string = "/") {
+  const history = useHistory();
+  const isLogin = useIsLogin();
+
+  useEffect(() => {
+    !isLogin && history.replace(to);
+  }, [isLogin, history, to]);
+}
 
 export default useIsLogin;

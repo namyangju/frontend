@@ -5,9 +5,11 @@ import Arts from "components/arts/Arts";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
 import BidList from "components/bid/BidList";
+import { useIsNotLoginRedirect } from "hooks/useIsLogin";
 
 function ProfilePage() {
   const _id = useSelector((state: RootState) => state.auth.data?._id || "");
+  useIsNotLoginRedirect();
   return (
     <Layout>
       <ProfileBio />

@@ -7,35 +7,44 @@ import { Link } from "react-router-dom";
 import BidUserName from "components/bid/BidUserName";
 import { useSelector } from "react-redux";
 import { RootState } from "store";
+import useIsLogin from "hooks/useIsLogin";
 
 function MenuModal() {
   const { _id } = useSelector(
     (state: RootState) => state.auth.data || { _id: "" }
   );
+  const isLogin = useIsLogin();
+
   return (
     <Modal modalName="menu">
       {() => (
         <Menu>
-          <Link to="/profile" className="profile">
-            <Profile size="50px" />
-            <h3 className="username">
-              <BidUserName id={_id} />
-            </h3>
-          </Link>
-          <div className="menu-list">
-            <Link to="/write" className="menu-item">
-              입찰 등록
-            </Link>
-            <Link to="/bid" className="menu-item">
-              입찰 보기
-            </Link>
-            <Link to="/" className="menu-item">
-              디자인 보기
-            </Link>
-            <Link to="/write-project" className="menu-item">
-              내 프로젝트 업로드
-            </Link>
-          </div>
+          {isLogin ? (
+            <>
+              <Link to="/profile" className="profile">
+                <Profile size="50px" />
+                <h3 className="username">
+                  <BidUserName id={_id} />
+                </h3>
+              </Link>
+              <div className="menu-list">
+                <Link to="/write" className="menu-item">
+                  입찰 등록
+                </Link>
+                <Link to="/bid" className="menu-item">
+                  입찰 보기
+                </Link>
+                <Link to="/" className="menu-item">
+                  디자인 보기
+                </Link>
+                <Link to="/write-project" className="menu-item">
+                  내 프로젝트 업로드
+                </Link>
+              </div>
+            </>
+          ) : (
+            <div>로그인이 필요합니다.</div>
+          )}
         </Menu>
       )}
     </Modal>
