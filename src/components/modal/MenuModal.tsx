@@ -4,15 +4,23 @@ import Modal from "./Modal";
 import media from "constants/media";
 import Profile from "components/user/Profile";
 import { Link } from "react-router-dom";
+import BidUserName from "components/bid/BidUserName";
+import { useSelector } from "react-redux";
+import { RootState } from "store";
 
 function MenuModal() {
+  const { _id } = useSelector(
+    (state: RootState) => state.auth.data || { _id: "" }
+  );
   return (
     <Modal modalName="menu">
       {() => (
         <Menu>
           <Link to="/profile" className="profile">
             <Profile size="50px" />
-            <h3 className="username">Username</h3>
+            <h3 className="username">
+              <BidUserName id={_id} />
+            </h3>
           </Link>
           <div className="menu-list">
             <Link to="/write" className="menu-item">
