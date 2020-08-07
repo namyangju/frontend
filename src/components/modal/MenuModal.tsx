@@ -10,6 +10,7 @@ function MenuModal() {
 const Menu = styled.div`
   background: white;
   width: 50%;
+  max-width: 480px;
 
   @media screen and (max-width: ${media.small}) {
     width: 70%;
