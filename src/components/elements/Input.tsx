@@ -21,9 +21,11 @@ const Input = styled.input<InputProps>`
       css`
         display: block;
       `}
-    ${({ fullWidth }) => css`
-      width: 100%;
-    `}
+    ${({ fullWidth }) =>
+      fullWidth &&
+      css`
+        width: 100%;
+      `}
   :focus {
     outline: 0;
   }
