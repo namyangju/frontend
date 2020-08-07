@@ -24,6 +24,9 @@ function MenuModal() {
             <Link to="/" className="menu-item">
               디자인 보기
             </Link>
+            <Link to="/write-project" className="menu-item">
+              내 프로젝트 업로드
+            </Link>
           </div>
         </Menu>
       )}

@@ -6,6 +6,7 @@ import IndexPage from "./IndexPage";
 import WritePage from "./WritePage";
 import BidListPage from "./BidListPage";
 import ProfilePage from "./ProfilePage";
+import ProjectWritePage from "./ProjectWritePage";
 
 function Routes() {
   return (
@@ -16,6 +17,7 @@ function Routes() {
       <Route path="/write" component={WritePage} exact />
       <Route path="/bid" component={BidListPage} exact />
       <Route path="/profile" component={ProfilePage} exact />
+      <Route path="/write-project" component={ProjectWritePage} exact />
     </Switch>
   );
 }
