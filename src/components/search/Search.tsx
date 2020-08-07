@@ -6,7 +6,7 @@ import Input from "components/elements/Input";
 function Search() {
   return (
     <Wrap>
-      <Input fullWidth />
+      <Input fullWidth disabled={true} />
       <button className="button" type="submit">
         <MdSearch />
       </button>
