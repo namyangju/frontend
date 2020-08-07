@@ -12,9 +12,9 @@ function Art({
   image: string;
 }) {
   return (
-    <Link to={"/project/" + _id}>
+    <ArtLink to={"/project/" + _id} style={{ display: "block" }}>
       <ArtDiv image={image} role="img" aria-label={title} />
-    </Link>
+    </ArtLink>
   );
 }
 
@@ -23,14 +23,16 @@ const ArtDiv = styled.div<{ image: string }>`
   background-size: cover;
   background-position: center;
   border-radius: 8px;
-  width: 300px;
   height: 300px;
 
-  @media screen and (max-width: 829px) {
-    width: 100%;
-  }
   @media screen and (max-width: ${media.small}) {
     height: 200px;
+  }
+`;
+const ArtLink = styled(Link)`
+  width: 300px;
+  @media screen and (max-width: 829px) {
+    width: 100%;
   }
 `;
 
