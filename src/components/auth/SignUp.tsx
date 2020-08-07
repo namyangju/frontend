@@ -9,6 +9,7 @@ const initialValues = {
   password: "",
   passwordAccept: "",
   username: "",
+  role: "designer",
 };
 type ValueType = typeof initialValues;
 
@@ -43,6 +44,7 @@ function SignUp() {
         handleChange,
         handleBlur,
         handleSubmit,
+        setFieldValue,
         values,
         errors,
         isSubmitting,
@@ -82,6 +84,28 @@ function SignUp() {
             error={errors.username}
             value={values.username}
           />
+          <div className="select-role">
+            <label>
+              <input
+                type="radio"
+                name="role"
+                value="designer"
+                checked={values.role === "designer"}
+                onChange={() => setFieldValue("role", "designer")}
+              />
+              디자이너
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="client"
+                value="designer"
+                checked={values.role === "client"}
+                onChange={() => setFieldValue("role", "client")}
+              />
+              클라이언트
+            </label>
+          </div>
           <Button fullWidth disabled={isSubmitting}>
             회원가입
           </Button>
@@ -91,6 +115,13 @@ function SignUp() {
   );
 }
 
-const Form = styled.form``;
+const Form = styled.form`
+  .select-role {
+    margin-bottom: 24px;
+    label {
+      display: block;
+    }
+  }
+`;
 
 export default SignUp;
