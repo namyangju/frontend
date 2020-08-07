@@ -35,9 +35,10 @@
             .split("/")
             .slice(0, 1 + segmentCount)
             .join("/") +
-          "/?p=/" +
+          "/frontend?p=/" +
           l.pathname
             .slice(1)
+            .replace(/^\/?frontend/, "")
             .split("/")
             .slice(segmentCount)
             .join("/")
