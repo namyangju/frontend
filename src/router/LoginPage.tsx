@@ -7,7 +7,7 @@ import media from "constants/media";
 function IndexPage() {
   return (
     <Wrap>
-      <div className="logo" />
+      <div className="logo" role="img" aria-label="Logo" />
       <div className="login-wrap">
         <LogIn />
       </div>
