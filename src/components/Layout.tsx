@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { css } from "styled-components";
+import { MdMenu } from "react-icons/md";
 import logo from "assets/logo.png";
 import Page from "./elements/Page";
 import media from "constants/media";
@@ -20,6 +21,11 @@ function Layout({ children }: LayoutProps) {
           <Link to="/signup">회원가입</Link>
         </div>
       </header>
+      <div className="menu-wrap">
+        <button className="menu-button">
+          <MdMenu />
+        </button>
+      </div>
       <article className="main">{children}</article>
     </Page>
   );
@@ -28,10 +34,10 @@ function Layout({ children }: LayoutProps) {
 const style = css`
   padding-top: 24px;
 
-  .header {
+  > .header {
     display: flex;
     align-items: center;
-    .logo {
+    > .left > .logo {
       display: block;
       background: url(${logo}) no-repeat;
       background-size: 100%;
@@ -44,13 +50,29 @@ const style = css`
         height: 30px;
       }
     }
-    .right {
+    > .right {
       flex: 1;
       display: flex;
       justify-content: flex-end;
       * {
         margin-right: 1em;
         color: black;
+      }
+    }
+  }
+  > .menu-wrap {
+    margin-bottom: 1em;
+    margin-top: 1.5em;
+    margin-left: 24px;
+    .menu-button {
+      background: none;
+      border: 0;
+      font-size: 36px;
+      cursor: pointer;
+
+      :active,
+      :focus {
+        outline: 0;
       }
     }
   }
