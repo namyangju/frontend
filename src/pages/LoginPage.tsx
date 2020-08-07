@@ -3,8 +3,11 @@ import styled from "styled-components";
 import LogIn from "components/auth/LogIn";
 import logo from "assets/logo.png";
 import media from "constants/media";
+import { useIsLoginRedirect } from "hooks/useIsLogin";
 
 function IndexPage() {
+  useIsLoginRedirect();
+
   return (
     <Wrap>
       <div className="logo" role="img" aria-label="Logo" />

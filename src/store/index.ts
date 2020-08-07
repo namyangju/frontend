@@ -5,7 +5,7 @@ import authSlice from "./auth";
 const reducer = combineReducers({
   [authSlice.name]: authSlice.reducer,
 });
-export type RootType = ReturnType<typeof reducer>;
+export type RootState = ReturnType<typeof reducer>;
 
 const store = configureStore({
   reducer,
