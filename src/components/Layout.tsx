@@ -7,6 +7,7 @@ import Page from "./elements/Page";
 import media from "constants/media";
 import Modals from "./Modals";
 import useModal from "hooks/useModal";
+import Search from "./search/Search";
 
 interface LayoutProps {
   children?: React.ReactNode;
@@ -27,6 +28,9 @@ function Layout({ children }: LayoutProps) {
           <Link to="/signup">회원가입</Link>
         </div>
       </header>
+      <div className="search-wrap">
+        <Search />
+      </div>
       <div className="menu-wrap">
         <button className="menu-button" onClick={menuModal.show}>
           <MdMenu />
@@ -82,6 +86,9 @@ const style = css`
         outline: 0;
       }
     }
+  }
+  > .search-wrap {
+    margin-top: 1em;
   }
 `;
 export default Layout;

@@ -6,7 +6,7 @@ import Input from "components/elements/Input";
 function Search() {
   return (
     <Wrap>
-      <Input placeholder="검색할 학교/직장을 입력하세요" fullWidth />
+      <Input fullWidth />
       <button className="button" type="submit">
         <MdSearch />
       </button>
