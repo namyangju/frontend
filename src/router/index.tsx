@@ -1,7 +1,7 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
 import IndexPage from "./IndexPage";
-import SignUp from "./SignUp";
+import SignUp from "./SignUpPage";
 
 function Routes() {
   return (
