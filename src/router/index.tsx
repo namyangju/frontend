@@ -1,12 +1,12 @@
 import React from "react";
 import { Switch, Route } from "react-router-dom";
-import IndexPage from "./IndexPage";
 import SignUp from "./SignUpPage";
+import LoginPage from "./LoginPage";
 
 function Routes() {
   return (
     <Switch>
-      <Route path="/" component={IndexPage} exact />
+      <Route path="/login" component={LoginPage} exact />
       <Route path="/signup" component={SignUp} exact />
     </Switch>
   );
