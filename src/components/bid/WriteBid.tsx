@@ -4,14 +4,39 @@ import { Formik, FormikHelpers } from "formik";
 import Input from "components/elements/Input";
 import Textarea from "components/elements/Textarea";
 import Button from "components/elements/Button";
+import useClient from "hooks/useClient";
+import { useHistory } from "react-router-dom";
 
 const initialValues = { title: "", letter: "", details: "", price: "" };
 type ValueType = typeof initialValues;
 
 function WriteBid() {
+  const client = useClient();
+  const history = useHistory();
+
   const onSubmit = useCallback(
-    (values: ValueType, helper: FormikHelpers<ValueType>) => {},
-    []
+    async (
+      { title, price, details, letter }: ValueType,
+      helper: FormikHelpers<ValueType>
+    ) => {
+      if (!title || !price || !details || !letter) return;
+
+      try {
+        const req = await client.post("/bid", {
+          title,
+          description: details,
+          price,
+          phrase: letter,
+        });
+        const id = req.data.data._id;
+
+        history.push("/bid/" + id);
+      } catch (e) {
+        console.error(e);
+        alert("오류가 발생했습니다. 다시 시도해주세요.");
+      }
+    },
+    [client, history]
   );
   return (
     <Formik initialValues={initialValues} onSubmit={onSubmit}>
