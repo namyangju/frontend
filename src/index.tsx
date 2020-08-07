@@ -6,13 +6,16 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import store from "./store";
+import ModalProvider from "components/modal/ModalProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <BrowserRouter basename={process.env.PUBLIC_URL}>
-        <App />
-      </BrowserRouter>
+      <ModalProvider>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
+          <App />
+        </BrowserRouter>
+      </ModalProvider>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
