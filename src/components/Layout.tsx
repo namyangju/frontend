@@ -18,7 +18,9 @@ function Layout({ children }: LayoutProps) {
     <Page css={style}>
       <header className="header">
         <div className="left">
-          <div className="logo" role="img" aria-label="logo" />
+          <Link to="/">
+            <div className="logo" role="img" aria-label="logo" />
+          </Link>
         </div>
         <div className="right">
           <Link to="/login">로그인</Link>
@@ -42,7 +44,7 @@ const style = css`
   > .header {
     display: flex;
     align-items: center;
-    > .left > .logo {
+    > .left .logo {
       display: block;
       background: url(${logo}) no-repeat;
       background-size: 100%;
