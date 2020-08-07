@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Modal from "./Modal";
 import media from "constants/media";
 import Profile from "components/user/Profile";
+import { Link } from "react-router-dom";
 
 function MenuModal() {
   return (
@@ -14,9 +15,15 @@ function MenuModal() {
             <h3 className="username">Username</h3>
           </div>
           <div className="menu-list">
-            <div className="menu-item">입찰 등록</div>
-            <div className="menu-item">입찰 보기</div>
-            <div className="menu-item">디자인 보기</div>
+            <Link to="/write" className="menu-item">
+              입찰 등록
+            </Link>
+            <Link to="/bid" className="menu-item">
+              입찰 보기
+            </Link>
+            <Link to="/" className="menu-item">
+              디자인 보기
+            </Link>
           </div>
         </Menu>
       )}
@@ -46,6 +53,7 @@ const Menu = styled.div`
       padding: 1em;
       color: black;
       transition: background 0.5s;
+      border-radius: 8px;
       :hover {
         background: #eaeaea;
         cursor: pointer;
