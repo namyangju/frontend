@@ -3,10 +3,10 @@ import styled from "styled-components";
 import { useQuery } from "react-query";
 import Art from "./Art";
 import useClient from "hooks/useClient";
-function Arts() {
+function Arts({ query }: { query?: string }) {
   const client = useClient();
   const { data, isLoading, error } = useQuery("arts", () =>
-    client.get("/work?limit=20")
+    client.get("/work?limit=20" + (query ? "&" + query : ""))
   );
   if (error) return <div>Error: {error}</div>;
   if (isLoading) return <div>Loading...</div>;

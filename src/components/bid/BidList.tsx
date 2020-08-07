@@ -4,9 +4,9 @@ import { useQuery } from "react-query";
 import Bid from "./Bid";
 import client from "api/client";
 
-function BidList() {
+function BidList({ query }: { query?: string }) {
   const { data, isLoading } = useQuery("bid_list", () =>
-    client.get("/bid?limit=20")
+    client.get("/bid?limit=20" + (query ? "&" + query : ""))
   );
 
   if (isLoading || !data) return <div>Loading...</div>;
