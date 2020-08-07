@@ -1,11 +1,7 @@
 import styled, { css } from "styled-components";
+import { InputProps } from "./Input";
 
-export interface InputProps {
-  shadow?: boolean | string;
-  fullWidth?: boolean;
-  block?: boolean;
-}
-const Input = styled.input<InputProps>`
+const Textarea = styled.textarea<InputProps>`
   border: 0;
   padding: 1em 1.5em;
   background: #f2f2f2;
@@ -31,4 +27,4 @@ const Input = styled.input<InputProps>`
   }
 `;
 
-export default Input;
+export default Textarea;
