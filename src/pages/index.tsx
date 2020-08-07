@@ -7,6 +7,7 @@ import WritePage from "./WritePage";
 import BidListPage from "./BidListPage";
 import ProfilePage from "./ProfilePage";
 import ProjectWritePage from "./ProjectWritePage";
+import ProjectPage from "./ProjectPage";
 
 function Routes() {
   return (
@@ -18,6 +19,7 @@ function Routes() {
       <Route path="/bid" component={BidListPage} exact />
       <Route path="/profile" component={ProfilePage} exact />
       <Route path="/write-project" component={ProjectWritePage} exact />
+      <Route path="/project/:id" component={ProjectPage} exact />
     </Switch>
   );
 }
