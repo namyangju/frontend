@@ -8,12 +8,14 @@ import media from "constants/media";
 import Modals from "./Modals";
 import useModal from "hooks/useModal";
 import Search from "./search/Search";
+import useIsLogin from "hooks/useIsLogin";
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 function Layout({ children }: LayoutProps) {
   const menuModal = useModal("menu");
+  const isLogin = useIsLogin();
 
   return (
     <Page css={style}>
@@ -24,8 +26,12 @@ function Layout({ children }: LayoutProps) {
           </Link>
         </div>
         <div className="right">
-          <Link to="/login">로그인</Link>
-          <Link to="/signup">회원가입</Link>
+          {!isLogin && (
+            <>
+              <Link to="/login">로그인</Link>
+              <Link to="/signup">회원가입</Link>
+            </>
+          )}
         </div>
       </header>
       <div className="search-wrap">
