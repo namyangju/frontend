@@ -2,13 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import LogIn from "components/auth/LogIn";
 import logo from "assets/logo.png";
+import media from "constants/media";
 
 function IndexPage() {
   return (
     <Wrap>
-      <div className="logo">
-        <img src={logo} alt="Logo" />
-      </div>
+      <div className="logo" />
       <div className="login-wrap">
         <LogIn />
       </div>
@@ -24,11 +23,15 @@ const Wrap = styled.div`
   align-items: center;
   justify-content: center;
   .logo {
-    img {
-      width: 500px;
-      height: 140px;
-      display: block;
-      object-fit: contain;
+    width: 100%;
+    height: 200px;
+    display: block;
+    background: url(${logo}) no-repeat;
+    background-size: contain;
+    background-position: center;
+
+    @media screen and (max-width: ${media.small}) {
+      height: 150px;
     }
   }
   .login-wrap {
