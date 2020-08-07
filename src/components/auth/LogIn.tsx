@@ -40,7 +40,9 @@ function LogIn() {
             />
           </label>
           <div className="button">
-            <Button fullWidth>로그인</Button>
+            <Button fullWidth disabled={isSubmitting}>
+              로그인
+            </Button>
             <p>
               또는 <Link to="/signup">회원가입</Link>
             </p>
