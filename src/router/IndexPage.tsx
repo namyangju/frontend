@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import Page from "components/elements/Page";
 import logo from "assets/logo.png";
 import media from "constants/media";
+import Arts from "components/arts/Arts";
 
 function IndexPage() {
   return (
@@ -17,6 +18,9 @@ function IndexPage() {
           <Link to="/signup">회원가입</Link>
         </div>
       </header>
+      <article className="main">
+        <Arts />
+      </article>
     </Page>
   );
 }
