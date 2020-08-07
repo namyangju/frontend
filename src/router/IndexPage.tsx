@@ -3,6 +3,7 @@ import { css } from "styled-components";
 import { Link } from "react-router-dom";
 import Page from "components/elements/Page";
 import logo from "assets/logo.png";
+import media from "constants/media";
 
 function IndexPage() {
   return (
@@ -33,6 +34,11 @@ const style = css`
       background-position: center;
       width: 200px;
       height: 60px;
+
+      @media screen and (max-width: ${media.small}) {
+        width: 100px;
+        height: 30px;
+      }
     }
     .right {
       flex: 1;
