@@ -5,7 +5,7 @@ import Input from "components/elements/Input";
 import Textarea from "components/elements/Textarea";
 import Button from "components/elements/Button";
 
-const initialValues = { title: "", details: "", price: "" };
+const initialValues = { title: "", letter: "", details: "", price: "" };
 type ValueType = typeof initialValues;
 
 function WriteBid() {
@@ -24,6 +24,16 @@ function WriteBid() {
               onChange={handleChange}
               onBlur={handleBlur}
               placeholder="입찰제목"
+              fullWidth
+            />
+          </div>
+          <div className="letter">
+            <Input
+              name="letter"
+              value={values.letter}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              placeholder="쓸 글씨"
               fullWidth
             />
           </div>
@@ -65,6 +75,9 @@ const Form = styled.form`
     button {
       margin-left: 1em;
     }
+  }
+  > .letter {
+    margin-top: 1em;
   }
 `;
 
