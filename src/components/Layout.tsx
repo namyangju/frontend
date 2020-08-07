@@ -5,11 +5,15 @@ import { MdMenu } from "react-icons/md";
 import logo from "assets/logo.png";
 import Page from "./elements/Page";
 import media from "constants/media";
+import Modals from "./Modals";
+import useModal from "hooks/useModal";
 
 interface LayoutProps {
   children?: React.ReactNode;
 }
 function Layout({ children }: LayoutProps) {
+  const menuModal = useModal("menu");
+
   return (
     <Page css={style}>
       <header className="header">
@@ -22,11 +26,12 @@ function Layout({ children }: LayoutProps) {
         </div>
       </header>
       <div className="menu-wrap">
-        <button className="menu-button">
+        <button className="menu-button" onClick={menuModal.show}>
           <MdMenu />
         </button>
       </div>
       <article className="main">{children}</article>
+      <Modals />
     </Page>
   );
 }
