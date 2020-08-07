@@ -1,5 +1,5 @@
 const color = {
-  primary: "#0073ff",
+  primary: "#00098b",
 
   isLight(colorCode: string) {
     let code = colorCode;
@@ -12,7 +12,7 @@ const color = {
       [code.slice(0, 2), code.slice(2, 4), code.slice(4, 6)]
         .map((v) => parseInt(v, 16))
         .reduce((a, b) => a + b, 0) / 3;
-    return rgbAverage < 120;
+    return rgbAverage > 120;
   },
 };
 
